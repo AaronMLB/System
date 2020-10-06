@@ -1,9 +1,9 @@
-<h1>Hello Cloudreach!</h1>
-<h4>Attempting MySQL connection from php...</h4>
+<h1>British Comedy Guide v4</h1>
+<h4>Attempting MySQL connection from PHP.</h4>
 <?php
 $host = 'mysql';
-$user = 'root';
-$pass = 'rootpassword';
+$user = 'bcg_site';
+$pass = 'yfv(%&gdsa5B';
 $conn = new mysqli($host, $user, $pass);
 
 if ($conn->connect_error) {
@@ -11,5 +11,3 @@ if ($conn->connect_error) {
 } else {
     echo "Connected to MySQL successfully!";
 }
-
-?>
