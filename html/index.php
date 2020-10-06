@@ -4,10 +4,21 @@
 $host = 'mysql';
 $user = 'bcg_site';
 $pass = 'yfv(%&gdsa5B';
-$conn = new mysqli($host, $user, $pass);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Connected to MySQL successfully!";
+$options = [
+	PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+	PDO::ATTR_STRINGIFY_FETCHES => false,
+];
+
+try {
+	$DB = new PDO('mysql:host=' . $host . ';charset=utf8', $user, $pass, $options);
 }
+catch ( PDOException $Exception ) {
+	var_dump($Exception);
+	exit;
+}
+
+mb_internal_encoding('UTF-8');
+mb_http_output('UTF-8');
+
+var_dump($DB);
